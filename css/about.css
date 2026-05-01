@@ -21,41 +21,15 @@ h2 {
     color: var(--primary-color);
 }
 .footer-d {
-    display: flex;
     background-color: var(--primary-color);
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
+    color: white;
 }
 .img-f {
     height: 80px;
 }
-.footer-d1 {
-    display: flex;
-    justify-content: space-between;
-    height: 30px;
-}
-.footer-d1 a {
+.footer-d a {
     color: white;
-}
-.footer-d2 {
-    height: 30px;
-    color: white;
-}
-.footer-d2 span {
-    color: blue;
-}
-.footer-last {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 600px;
-}
-.footer-space {
-    width: 200px;
-    height: 100px;
-    color: white;
+    text-decoration: none;
 }
 .why-section {
     max-width: 1000px;
