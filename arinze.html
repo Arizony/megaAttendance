@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="load">
+        <div class="stripe stripe1"></div>
+        <div class="stripe stripe2"></div>
+        <div class="stripe stripe3"></div>
+        <p>loading...</p>
+    </div>
+
+
+    <style>
+        @import url("/css/config.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; 
+  font-family: Arial, sans-serif;
+}
+
+.load {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.stripe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  animation: rotate 4s linear 1 forwards;
+}
+
+.stripe1 {
+  border-top: 4px solid #c79cf1;
+  border-left: 4px solid transparent;
+  filter: drop-shadow(0 0 10px #c79cf1);
+}
+
+.stripe2 {
+  border-right: 4px solid #ff00d4;
+  border-bottom: 4px solid transparent;
+  animation-direction: reverse;
+  filter: drop-shadow(0 0 10px #ff00d4);
+}
+
+.stripe3 {
+  border-bottom: 4px solid #670bc4;
+  border-left: 4px solid transparent;
+  animation-duration: 4s;
+  filter: drop-shadow(0 0 10px #670bc4);
+}
+
+.load p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff00d4;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+</body>
+</html>
