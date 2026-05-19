@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Genotype Calculator</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#0f172a;
+    }
+
+    .calculator{
+      width:320px;
+      background:#1e293b;
+      padding:20px;
+      border-radius:20px;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .screen{
+      background:#0f172a;
+      color:white;
+      padding:20px;
+      border-radius:15px;
+      margin-bottom:20px;
+      min-height:120px;
+    }
+
+    .screen h2{
+      font-size:18px;
+      margin-bottom:10px;
+      color:#38bdf8;
+    }
+
+    .display{
+      font-size:22px;
+      margin-top:10px;
+      word-wrap:break-word;
+    }
+
+    .buttons{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
+    }
+
+    button{
+      padding:18px;
+      border:none;
+      border-radius:12px;
+      font-size:20px;
+      cursor:pointer;
+      background:#334155;
+      color:white;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#475569;
+    }
+
+    .equal{
+      grid-column:span 2;
+      background:#38bdf8;
+      color:black;
+      font-weight:bold;
+    }
+
+    .equal:hover{
+      background:#0ea5e9;
+    }
+
+    .result{
+      margin-top:15px;
+      color:#f8fafc;
+      font-size:16px;
+      line-height:1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+
+    <div class="screen">
+      <h2>Genotype Matcher</h2>
+
+      <div class="display" id="display">
+        Select Genotypes
+      </div>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <div class="buttons">
+      <button onclick="selectGenotype('AA')">AA</button>
+      <button onclick="selectGenotype('AS')">AS</button>
+      <button onclick="selectGenotype('SS')">SS</button>
+      <button onclick="clearData()">C</button>
+
+      <button class="equal" onclick="checkMatch()">MATCH</button>
+    </div>
+
+  </div>
+
+  <script>
+    let selections = [];
+
+    function selectGenotype(type){
+      if(selections.length < 2){
+        selections.push(type);
+        document.getElementById("display").innerHTML =
+          selections.join(" + ");
+      }
+    }
+
+    function clearData(){
+      selections = [];
+      document.getElementById("display").innerHTML =
+        "Select Genotypes";
+
+      document.getElementById("result").innerHTML = "";
+    }
+
+    function checkMatch(){
+
+      if(selections.length < 2){
+        alert("Please select two genotypes");
+        return;
+      }
+
+      let pair = selections.sort().join("-");
+
+      let result = "";
+
+      switch(pair){
+
+        case "AA-AA":
+          result = "Perfect Match.<br>No chance of SS child.";
+          break;
+
+        case "AA-AS":
+          result = "Good Match.<br>Children may be AA or AS.";
+          break;
+
+        case "AA-SS":
+          result = "Fair Match.<br>All children will be AS.";
+          break;
+
+        case "AS-AS":
+          result = "Risky Match.<br>Possible AA, AS, SS children.";
+          break;
+
+        case "AS-SS":
+          result = "High Risk.<br>Possible AS or SS children.";
+          break;
+
+        case "SS-SS":
+          result = "Not Advisable.<br>All children may be SS.";
+          break;
+
+        default:
+          result = "Invalid Selection";
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+
+</body>
+</html>
+</body>
+</html>l
