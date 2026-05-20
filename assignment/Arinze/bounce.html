@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Move Ball</title>
+  <link rel="stylesheet" href="css/bounce.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="ball" id="ball"></div>
+  </div>
+
+  <div class="controls">
+    <div class="empty"></div>
+    <button onclick="move('up')">up</button>
+    <div class="empty"></div>
+
+    <button onclick="move('left')">left</button>
+    <button onclick="move('down')">down</button>
+    <button onclick="move('right')">right</button>
+  </div>
+
+  <script>
+    const ball = document.getElementById("ball");
+
+    let x = 225;
+    let y = 125;
+    const step = 20;
+
+    function move(direction) {
+      if (direction === "up") {
+        y -= step;
+      }
+
+      if (direction === "down") {
+        y += step;
+      }
+
+      if (direction === "left") {
+        x -= step;
+      }
+
+      if (direction === "right") {
+        x += step;
+      }
+
+      ball.style.left = x + "px";
+      ball.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
